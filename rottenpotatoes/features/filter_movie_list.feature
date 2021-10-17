@@ -44,5 +44,5 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I should not see "The Help"
 
 Scenario: all ratings selected
+  Given I check the following ratings: PG, R, G, PG-13 
   Then I should see all the movies
-  # see assignment
