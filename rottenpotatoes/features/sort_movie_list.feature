@@ -21,11 +21,6 @@ Background: movies have been added to database
 
   And I am on the RottenPotatoes home page
   Then 10 seed movies should exist
-  And I should see "Aladdin" before "Amelie"
-
-  When I check the following ratings: PG, G, R
-  And I uncheck the following ratings: G
-  Then I should see all the movies
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
@@ -33,4 +28,4 @@ Scenario: sort movies alphabetically
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
-  Then I should see "The Terminator" before "Amelie"
+  Then I should see movies sorted by release date

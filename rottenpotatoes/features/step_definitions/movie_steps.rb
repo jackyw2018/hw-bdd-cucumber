@@ -12,6 +12,18 @@ Then /(.*) seed movies should exist/ do | n_seeds |
   Movie.count.should be n_seeds.to_i
 end
 
+Then /I should see movies sorted by release date/ do
+  movies_by_date = Movie.all.order(release_date: :asc)
+  idx = 0
+  while idx < movies_by_date.length - 1 do
+    m1, m2 = movies_by_date[idx], movies_by_date[idx + 1]
+    msg = "I should see \"#{m1.title}\" before \"#{m2.title}\""
+    step(msg)
+    idx += 1
+  end
+
+end
+
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
