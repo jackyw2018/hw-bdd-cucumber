@@ -24,8 +24,8 @@ Background: movies have been added to database
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  Then I should see "Aladdin" before "Amelie"
+  Then I should see movies sorted by "title"
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
-  Then I should see movies sorted by release date
+  Then I should see movies sorted by "release_date"

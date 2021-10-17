@@ -12,11 +12,11 @@ Then /(.*) seed movies should exist/ do | n_seeds |
   Movie.count.should be n_seeds.to_i
 end
 
-Then /I should see movies sorted by release date/ do
-  movies_by_date = Movie.all.order(release_date: :asc)
+Then /I should see movies sorted by "(.*)"/ do |field|
+  movies_ordered = Movie.all.order("#{field} ASC")
   idx = 0
-  while idx < movies_by_date.length - 1 do
-    m1, m2 = movies_by_date[idx], movies_by_date[idx + 1]
+  while idx < movies_ordered.length - 1 do
+    m1, m2 = movies_ordered[idx], movies_ordered[idx + 1]
     msg = "I should see \"#{m1.title}\" before \"#{m2.title}\""
     step(msg)
     idx += 1
